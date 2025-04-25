@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const connectDB = require('../config/db')
-
+const serverless = require("serverless-http");
 const app = express()
 const PORT = process.env.PORT || 3000
 
@@ -39,10 +39,11 @@ app.use('/orders', orderRoutes)
 connectDB()
 app.get('/', (req, res) => { 
   res.send('Hello from Vercel!')
-})
+}) 
 // Start the server on the specified port
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-module.exports = app
+// module.exports = app
+module.exports.handler = serverless(app);
