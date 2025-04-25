@@ -41,9 +41,10 @@ app.get('/', (req, res) => {
   res.send('Hello from Vercel!')
 }) 
 // Start the server on the specified port
-app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+// 	console.log(`Server is running on http://localhost:${PORT}`);
+// });
 
 // module.exports = app
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
+module.exports = serverless(app);
