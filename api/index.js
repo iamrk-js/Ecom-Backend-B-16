@@ -2,7 +2,7 @@ require('dotenv').config() // For environment variables
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const connectDB = require('../config/db')
+const connectDB = require('./config/db')
 const serverless = require("serverless-http");
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -26,10 +26,10 @@ app.use(
 app.use(express.json())
 
 // Import and use the routes
-const productRoutes = require('../routes/productRoutes')
-const userRoutes = require('../routes/userRoutes')
-const cartRoutes = require('../routes/cartRoutes')
-const orderRoutes = require('../routes/orderRoutes')
+const productRoutes = require('./routes/productRoutes')
+const userRoutes = require('./routes/userRoutes')
+const cartRoutes = require('./routes/cartRoutes')
+const orderRoutes = require('./routes/orderRoutes')
 app.use('/products', productRoutes)
 app.use('/users', userRoutes)
 app.use('/cart', cartRoutes)
@@ -38,7 +38,7 @@ app.use('/orders', orderRoutes)
 // Connect to MongoDB
 connectDB()
 app.get('/', (req, res) => { 
-  res.send('Hello from Vercel!')
+  res.send('Hello from Vercel!') 
 }) 
 // Start the server on the specified port
 // app.listen(PORT, () => {
