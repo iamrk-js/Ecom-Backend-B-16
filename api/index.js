@@ -37,12 +37,12 @@ app.use('/orders', orderRoutes)
 
 // Connect to MongoDB
 connectDB()
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { 
   res.send('Hello from Vercel!')
 })
 // Start the server on the specified port
-// app.listen(PORT, () => {
-// 	console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+	console.log(`Server is running on http://localhost:${PORT}`);
+});
 
 module.exports = app
