@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 let isConnected = false;
 
-const connectDB = async () => {
+const ConnectMongo = async () => {
   if (isConnected) {
     console.log('🔁 Using existing DB connection');
     return;
@@ -25,7 +25,7 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+// module.exports = connectDB;
 
 function checkConnectionStatus() {
 	const status = mongoose.connection.readyState;
